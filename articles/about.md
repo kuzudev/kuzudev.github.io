@@ -1,0 +1,1 @@
+My name is Igor. I am computer vision engineer. I explore computer vision and language models, creating projects that bring the two together by integrating visual and textual understanding.
