@@ -1,4 +1,6 @@
-# ML Notes
+---
+title: ML Notes
+---
 
 Hello 👋! 
 Here I write short notes on computer vision and its integration with text:

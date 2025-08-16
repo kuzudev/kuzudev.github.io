@@ -1,4 +1,8 @@
-## Image to sequence
+---
+layout: post
+title: "Image to sequence"
+use_math: true
+---
 
 Let’s recall that modern deep neural networks (DNNs) based on transformers operate on **sequences**.  
 A sequence can represent:
