@@ -17,7 +17,7 @@ $$
 X = \left[ \; \vec w_{CLS} \;; \; \vec x_p^1 \; W_{LP} \; ; \; ... \; ; \; \vec x_p^N \; W_{LP} \; \right] + W_{positional \; embs}
 $$
 
-\(\vec w_{CLS}\) — learnable CLS token with shape \(1 \times D\)  
+$$\vec w_{CLS}$$— learnable CLS token with shape \(1 \times D\)  
 \(D\) — dimension of embedding space  
 
 \(H, W\) — size of the input image  
