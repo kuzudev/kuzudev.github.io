@@ -1,9 +1,3 @@
----
-layout: post
-title: "Image to sequence"
-use_math: true
----
-
 Let’s recall that modern deep neural networks (DNNs) based on transformers operate on **sequences**.  
 A sequence can represent:
 - text,
@@ -23,14 +17,14 @@ $$
 X = \left[ \; \vec w_{CLS} \;; \; \vec x_p^1 \; W_{LP} \; ; \; ... \; ; \; \vec x_p^N \; W_{LP} \; \right] + W_{positional \; embs}
 $$
 
-$\vec w_{CLS}$ - learnable CLS token with shape $1 \times D$
-$D$ - dimention of embedding space
+\(\vec w_{CLS}\) — learnable CLS token with shape \(1 \times D\)  
+\(D\) — dimension of embedding space  
 
-$H, W$ - size of the input image
-$P, P$ - size of each patch
-$N=\frac{HW}{P^2}$ - number of patches
-$\vec x_p^1 \; , \; ... \; , \; \vec x_p^N$ - flattened patches, shape of each vector is  $1 \; \times \; P^2 C$
+\(H, W\) — size of the input image  
+\(P, P\) — size of each patch  
+\(N=\dfrac{HW}{P^2}\) — number of patches  
+\(\vec x_p^1, \ldots, \vec x_p^N\) — flattened patches, each has shape \(1 \times P^2 C\)  
 
-$W_{LP}$ - matrix of linear projection with shape $P^2C \; \times \; D$
+\(W_{LP}\) — linear projection with shape \(P^2 C \times D\)  
 
-$W_{positional \; embs}$ - learnable positional embeddings for each token, shape is $N+1 \; \times \; D$
+\(W_{\text{positional}\; \text{embs}}\) — learnable positional embeddings for each token, shape \( (N+1) \times D \)
