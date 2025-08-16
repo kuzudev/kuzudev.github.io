@@ -1,3 +1,5 @@
+## Image to sequence
+
 Let’s recall that modern deep neural networks (DNNs) based on transformers operate on **sequences**.  
 A sequence can represent:
 - text,
