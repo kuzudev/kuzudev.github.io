@@ -152,7 +152,7 @@ Where $$\alpha_1, ... , \alpha_{n_V}$$ are weights of closeness between $$Q$$ an
 
 Each head projects the input tokens into its own lower-dimensional subspace and computes attention **only within that subspace**.
 
-<img src="vit/3.png" alt="diagram" width="300">
+<img src="vit/3.png" alt="diagram" width="300" style="display:block; margin:auto;">
 
 $$
 \begin{aligned}

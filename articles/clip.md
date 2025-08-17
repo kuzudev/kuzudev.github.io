@@ -14,7 +14,7 @@ If we just take arbitrary encoders, their outputs will not correspond to each ot
 
 Here is where contrastive pretraining comes to the rescue. We can actually train the image and text encoders simultaneously on image-text pairs. With the help of some tricks, this eventually leads to a shared embedding space for images and text captions.
 
-<img src="clip/2.png" alt="diagram" width="400">
+<img src="clip/2.png" alt="diagram" width="550">
 
 ## Trick 1: contrastive pretraining with all pairs in image-text batch
 
@@ -29,6 +29,7 @@ After training, it is possible to measure how close in meaning a given image is 
 ## Trick 2: InfoNCE loss from metric learning
 
 Here special InfoNCE loss is using in training:
+
 $$
 -\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}}
 $$
@@ -41,7 +42,8 @@ $$T_i$$ - $$i$$th object (for example, text description)
 $$I_i, T_i$$ - positive pair
 $$I_i, T_j$$ $$i \neq j$$ - negative pair
 
-<img src="clip/3.png" alt="diagram">
+<img src="clip/3.png" alt="diagram" width="150">
+
 Positive and negative pairs
 
 So, actually InfoNCE is Cross Entropy loss with inner $$softmax(similarity)$$.
