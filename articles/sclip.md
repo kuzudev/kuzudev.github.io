@@ -3,13 +3,13 @@ title: SCLIP - gracefully upgrade CLIP for segmentation
 ---
 Imagine: you have a pretrained CLIP model based on ViT, and you’ve built a system that determines whether a text description matches the given photo. Perfect!
 
-But then, unexpectedly, you’re asked to **locate** the objects in the image that correspond to the description. Your first thought might be: "I need to create annotation masks for segmentation and train a new segmentation model (for example, like [CLIPSeg](https://arxiv.org/pdf/2112.10003))."
+But then, unexpectedly, you’re asked to **locate** the objects in the image that correspond to the description. Your first thought might be: I need to create annotation masks for segmentation and train a new segmentation model (for example, like [CLIPSeg](https://arxiv.org/pdf/2112.10003)).
 
 Now imagine you don’t need to do that at all. Instead, you simply replace a final layer with a **modified attention module**!
 
 This is exactly the idea behind the [SCLIP](https://arxiv.org/pdf/2312.01597) paper and its approach. Let's dive in step by step!
 
-<img src="sclip/0.png" alt="diagram" width="400">
+<img src="sclip/0.png" alt="diagram" width="600" style="display:block; margin:auto;">
 
 ## Refresh the basics
 
@@ -25,7 +25,8 @@ Remake CLIP pipeline:
 
 ## CLIP attention map is invariant to object translation
 
-<img src="sclip/1.png" alt="diagram" width="400">
+<img src="sclip/1.png" alt="diagram" width="600">
+
 Display of the attention maps of four points (marked in different colors) for each example.
 
 According to its attention maps, the authors conclude that CLIP:
@@ -40,23 +41,28 @@ To be able make a dense task like image segmentation "local representations shou
 
 The main idea: replace (for example, in final layer) original Self-Attention block to **Correlative Self-Attention (CSA) module**:
 
-<img src="sclip/2.png" alt="diagram" width="400">
+<img src="sclip/2.png" alt="diagram" width="400" style="display:block; margin:auto;">
 
 So, attention formula from:
+
 $$
 A = softmax \left( \frac{QK^T}{\sqrt{d_k}} \right)
 $$
+
 $$
 Q = X W_q
 $$
+
 $$
 K = X W_k
 $$
+
 $$
 A = softmax \left( \frac{XW_qW_k^TX^T}{\sqrt{d_k}} \right)
 $$
 
 becomes:
+
 $$
 A = softmax \left( \frac{XW_rW_r^TX^T}{\sqrt{d_k}} \right)
 $$
@@ -88,6 +94,8 @@ A schematic image illustrating approximate changes in attention values.
 Actually, even setting attention map to an identical matrix regardless of the input increases segmentation metrics!
 
 "... MaskCLIP uses this attention map in CLIP vision encoder’s last layer and obtains a non-trivial improvement in semantic segmentation..."
+
+
 But "...this approach strictly constrains the receptive field of local tokens, the model may easily over-focus on low-level features and thus produces noisy dense predictions".
 
 _This restriction of the attention matrix resembles the small receptive field in CNNs._
@@ -99,18 +107,11 @@ _Features in CNNs vs. ViTs:_
 - ***In ViTs (with full self-attention):***
     - *Already in the **first layer**, each patch (token) can interact with **any other** patch, meaning the model has access to global context from the very beginning.*
 
-*В **CNN**:*
-- *Каждый нейрон видит только локальный фрагмент изображения (receptive field).*
-- *Receptive field увеличивается с глубиной сети за счёт наложения свёрток и pooling, но всё равно информация передаётся постепенно — сначала только от близких пикселей, потом от более дальних.*
-- *Даже у глубоких CNN "полный обзор" картинки появляется лишь на последних слоях.*
-*В **ViT** (с полным self-attention):*
-- *Уже в **первом слое** каждый патч (токен) может взаимодействовать с **любым** другим патчем - то есть модель изначально имеет глобальный контекст.*
-
 ### Neaby tokens with same semantic meaning
 
 That is why it is important to use CSA formula instead of identical matrix.
 
-<img src="sclip/4.png" alt="diagram" width="400">
+<img src="sclip/4.png" alt="diagram" width="600">
 
 "...CSA imparts high attention scores not only to $$a_i$$ itself but also to tokens that share similar semantic content"
 
@@ -135,7 +136,7 @@ attn_weights = F.softmax(q_attn, dim=-1) + F.softmax(k_attn, dim=-1)
 ```
 
 **In SCLIP, instead of using the CLS token, patch tokens are taken!**
-See [here](https://github.com/wangf3014/SCLIP/blob/main/clip_segmentor.py#L63)
+See [here](https://github.com/wangf3014/SCLIP/blob/main/clip_segmentor.py#L63).
 ```python
 image_features = self.net.encode_image(img, return_all=True, csa=True)
 image_features /= image_features.norm(dim=-1, keepdim=True)
