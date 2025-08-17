@@ -5,7 +5,7 @@ title: Vision Transformer - Attention Maps
 
 ## How to get
 
-Imagine, we have ViT final layer in Transformer Encoder block. In this final layer we have $h$ heads. From each head we can take:
+Imagine, we have ViT final layer in Transformer Encoder block. In this final layer we have $$h$$ heads. From each head we can take:
 
 
 $$
