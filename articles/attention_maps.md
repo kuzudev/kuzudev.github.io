@@ -11,9 +11,13 @@ Imagine, we have ViT final layer in Transformer Encoder block. In this final lay
 $$
 A = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right)
 $$
+
 $$A$$ has shape $$N+1 \; \times \; N+1$$
+
 $$N$$ - number of patches
-For 1 CLS token is responsible
+
+For $$1$$ - CLS token is responsible.
+
 
 We can take only specific head or mean $$A$$ across all the $$h$$ heads. So, for simplicity, imagine that we have only one matrix $$A$$.
 
@@ -42,7 +46,7 @@ The element $$(i, i)$$ on the diagonal of the attention matrix in a ViT is the *
 - If $$(i,i)$$ is close to 1, it means that in this head the token almost completely “ignores” other tokens and mainly relies on its own features.
 - If the weight is small, it means that this token is actively using information from other tokens.
 
-After that, the resulting matrix $$A$$ can be overlaid on the image.
+After that, the resulting matrix $$A$$ can be overlaid on the image. For visualizing an attention map on an image, usually the row from matrix $A$ corresponding to the CLS token is taken (then reshaping and upsampling to the size of the image).
 
 <img src="attention_maps/2.png" alt="diagram" width="400">
 
