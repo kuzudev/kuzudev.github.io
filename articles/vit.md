@@ -15,9 +15,9 @@ Before being processed by a transformer-based DNN, an image typically undergoes 
 1. **Splitting into patches**: the image is divided into fixed-size patches.
 2. **Flattening patches**: each patch is converted into a 1D vector.
 3. **Linear projection**: each vector is mapped into a higher-dimensional embedding space (forming a _token_).
-4. Adding learnable positional embeddings, learnable CLS token (trained during training and fixed during inference).</p>
+4. Adding learnable positional embeddings, learnable CLS token (trained during training and fixed during inference).
 
-<img src="vit/1.png" alt="diagram" width="400">
+<img src="vit/1.png" alt="diagram" width="500">
 
 $$
 X = \left[ \; \vec w_{CLS} \;; \; \vec x_p^1 \; W_{LP} \; ; \; ... \; ; \; \vec x_p^N \; W_{LP} \; \right] + W_{positional \; embs}
@@ -71,7 +71,7 @@ $$
 $$N$$ - number of patches
 $$D$$ - length of each input embedding (each input token)
 
-<img src="vit/2.png" alt="diagram" width="200">
+<img src="vit/2.png" alt="diagram" width="165">
 
 ### 0. Linear projection:
 
@@ -136,7 +136,7 @@ Attention\_res(Q, K, V) = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right) V
 $$
 $$Attention\_res(Q, K, V)$$ has shape $$N+1 \; \times \; D_h$$
 
-<img src="vit/2.png" alt="diagram" width="200">
+<img src="vit/2.png" alt="diagram" width="165">
 
 Good interpretantion of attention:
 *The vanilla self-attention mechanism generate the target feature by the linear combination of all features which are weighted by the similarity between them*
