@@ -78,18 +78,25 @@ $$D$$ - length of each input embedding (each input token)
 $$
 Q = X W_Q
 $$
+
 $$
 K = X W_K
 $$
+
 $$
 V = X W_V
 $$
+
 $$X$$ - shape $$N+1 \; \times \; D$$
+
 $$W_Q$$ - shape $$D \; \times \; D_h$$
+
 $$W_K$$ - shape $$D \; \times \; D_h$$
+
 $$W_V$$ - shape $$D \; \times \; D_h$$
 
 *In ViT $$d_Q = d_K = d_V = D_h$$*
+
 $$
 D_h = \frac{D}{h}
 $$
