@@ -8,8 +8,7 @@ A sequence can represent:
 - time series,
 - or even patches of an image(s).
 In our case, we will focus on **images**. 
-
-
+ 
 Before being processed by a transformer-based DNN, an image typically undergoes the following steps:
 1. **Splitting into patches**: the image is divided into fixed-size patches.
 2. **Flattening patches**: each patch is converted into a 1D vector.
@@ -88,7 +87,7 @@ $$W_Q$$ - shape $$D \; \times \; D_h$$
 $$W_K$$ - shape $$D \; \times \; D_h$$
 $$W_V$$ - shape $$D \; \times \; D_h$$
 
-*In ViT $d_Q = d_K = d_V = D_h$*
+*In ViT $$d_Q = d_K = d_V = D_h$$*
 $$
 D_h = \frac{D}{h}
 $$
@@ -110,7 +109,7 @@ $$
 
 $$d_K$$ - dimension of matrix $$K$$
 Why $$d_K$$ ?
-*For large values of $d_K$, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients. To counteract this effect, we scale the dot products by $$\sqrt{d_K}$$.*
+*For large values of $$d_K$$, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients. To counteract this effect, we scale the dot products by $$\sqrt{d_K}$$.*
 
 *In ViT $$d_K = D_h$$*
 
@@ -135,7 +134,7 @@ Attention\_res(Q, K, V) = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right) V
 $$
 $$Attention\_res(Q, K, V)$$ has shape $$N+1 \; \times \; D_h$$
 
-<img src="vit/3.png" alt="diagram" width="350">
+<img src="vit/3.png" alt="diagram" width="300">
 
 Good interpretantion of attention:
 *The vanilla self-attention mechanism generate the target feature by the linear combination of all features which are weighted by the similarity between them*
@@ -159,6 +158,7 @@ $$
 \text{Head } h: &\quad W^{(h)}_Q,\; W^{(h)}_K,\; W^{(h)}_V
 \end{aligned}
 $$
+
 Different projection matrices allow each head to “look at” different representations of the features.
 
 ### Concat
@@ -195,7 +195,6 @@ Z_{l}^{'} = MHA(LN(Z_{l-1}))+Z_{l-1}, \;\;\;\; l = 1, ..., L
 $$
 $$
 Z_{l} = MLP(LN(Z_l^{'}))+Z_l^{'}, \;\;\;\; l = 1, ..., L
-
 $$
 ### Norm (LN)
 
@@ -209,7 +208,7 @@ Is just [multilayer perceptron](https://scikit-learn.org/stable/modules/neural_n
 
 ## ViT overall structure
 
-<img src="vit/5.png" alt="diagram" width="500">
+<img src="vit/5.png" alt="diagram" width="450">
 
 See more in [ViT paper](https://arxiv.org/pdf/2010.11929).
 
