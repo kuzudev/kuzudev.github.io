@@ -1,3 +1,5 @@
+# Vision Transformer - Basics
+
 ## Image to sequence
 
 Let’s recall that modern deep neural networks (DNNs) based on transformers operate on **sequences**.  
@@ -5,8 +7,8 @@ A sequence can represent:
 - text,
 - time series,
 - or even patches of an image(s).
-In our case, we will focus on **images**. 
-
+In our case, we will focus on **images**.<br> 
+<br>
 Before being processed by a transformer-based DNN, an image typically undergoes the following steps:
 1. **Splitting into patches**: the image is divided into fixed-size patches.
 2. **Flattening patches**: each patch is converted into a 1D vector.
