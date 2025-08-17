@@ -1,5 +1,6 @@
-# Vision Transformer - Basics
-
+---
+title: Vision Transformer - Basics
+---
 ## Image to sequence
 
 Let’s recall that modern deep neural networks (DNNs) based on transformers operate on **sequences**.  
@@ -7,6 +8,7 @@ A sequence can represent:
 - text,
 - time series,
 - or even patches of an image(s).
+
 In our case, we will focus on **images**. 
  
 Before being processed by a transformer-based DNN, an image typically undergoes the following steps:
@@ -134,7 +136,7 @@ Attention\_res(Q, K, V) = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right) V
 $$
 $$Attention\_res(Q, K, V)$$ has shape $$N+1 \; \times \; D_h$$
 
-<img src="vit/3.png" alt="diagram" width="300">
+<img src="vit/2.png" alt="diagram" width="200">
 
 Good interpretantion of attention:
 *The vanilla self-attention mechanism generate the target feature by the linear combination of all features which are weighted by the similarity between them*
@@ -149,6 +151,8 @@ Where $$\alpha_1, ... , \alpha_{n_V}$$ are weights of closeness between $$Q$$ an
 ## Unite Attentions to heads: Multi-Head Self Attention (MHA)
 
 Each head projects the input tokens into its own lower-dimensional subspace and computes attention **only within that subspace**.
+
+<img src="vit/3.png" alt="diagram" width="300">
 
 $$
 \begin{aligned}

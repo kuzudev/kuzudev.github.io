@@ -2,7 +2,8 @@
 title: ML Notes
 ---
 
-Hello 👋! 
+Hello 👋!
+ 
 Here I write short notes on computer vision and its integration with text:
 
 - [Vision Transformer - Basics](articles/vit.md)
