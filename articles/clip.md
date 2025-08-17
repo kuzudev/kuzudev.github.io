@@ -8,13 +8,13 @@ To achieve this, we can turn to **contrastive learning** - an approach borrowed 
 
 Imagine that we have one encoder to obtain embeddings from the input text description of an image, and another encoder to obtain embeddings from the image itself.
 
-<img src="clip/1.png" alt="diagram" width="400">
+<img src="clip/1.png" alt="diagram" width="400" style="display:block; margin:auto;">
 
 If we just take arbitrary encoders, their outputs will not correspond to each other. It is rather useless, for example, to measure the distance between text and image embeddings, since they belong to completely different embedding spaces (even if they have the same dimensionality).
 
 Here is where contrastive pretraining comes to the rescue. We can actually train the image and text encoders simultaneously on image-text pairs. With the help of some tricks, this eventually leads to a shared embedding space for images and text captions.
 
-<img src="clip/2.png" alt="diagram" width="550">
+<img src="clip/2.png" alt="diagram" width="500" style="display:block; margin:auto;">
 
 ## Trick 1: contrastive pretraining with all pairs in image-text batch
 
@@ -35,14 +35,21 @@ $$
 $$
 
 where:
+
 $$f$$ - function that measures similarity (in our case cos sim for embeddings from image and text encoders)
+
 $$\tau$$ -  [tempreture](https://lukesalamone.github.io/posts/what-is-temperature/) parameter
+
 $$I_i$$ - $$i$$th object (for example, image)
+
 $$T_i$$ - $$i$$th object (for example, text description)
+
 $$I_i, T_i$$ - positive pair
+
 $$I_i, T_j$$ $$i \neq j$$ - negative pair
 
-<img src="clip/3.png" alt="diagram" width="150">
+
+<img src="clip/3.png" alt="diagram" width="120" style="display:block; margin:auto;">
 
 Positive and negative pairs
 

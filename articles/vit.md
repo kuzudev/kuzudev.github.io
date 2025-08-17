@@ -184,12 +184,14 @@ $$Z_{out \; from \; MSA}$$ has shape $$N+1 \times D$$
 
 Multi-Head Attention blocks unite to Transformer Encoder to get image features representation:
 
-<img src="vit/4.png" alt="diagram" width="200">
+<img src="vit/4.png" alt="diagram" width="200" style="display:block; margin:auto;">
 
 So, formally:
+
 $$
 X \in \Bbb R^{N+1 \; \times \; D}
 $$
+
 $$
 Z_0 = X
 $$
@@ -197,9 +199,11 @@ $$
 $$
 Z_{l}^{'} = MHA(LN(Z_{l-1}))+Z_{l-1}, \;\;\;\; l = 1, ..., L
 $$
+
 $$
 Z_{l} = MLP(LN(Z_l^{'}))+Z_l^{'}, \;\;\;\; l = 1, ..., L
 $$
+
 ### Norm (LN)
 
 As for normalization, in ViT Layer Normalization (LN) is using. 
@@ -212,7 +216,7 @@ Is just [multilayer perceptron](https://scikit-learn.org/stable/modules/neural_n
 
 ## ViT overall structure
 
-<img src="vit/5.png" alt="diagram" width="450">
+<img src="vit/5.png" alt="diagram" width="450" style="display:block; margin:auto;">
 
 See more in [ViT paper](https://arxiv.org/pdf/2010.11929).
 

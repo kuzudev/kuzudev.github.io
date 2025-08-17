@@ -27,7 +27,7 @@ The attention map $$A$$ is matrix showing the attention weights each token pays 
 
 For example, look at simlified example of such $$A$$:
 
-<img src="attention_maps/1.png" alt="diagram" width="400">
+<img src="attention_maps/1.png" alt="diagram" width="400" style="display:block; margin:auto;">
 
 Sequence of tokens for $$A$$ above:
 
@@ -48,7 +48,7 @@ The element $$(i, i)$$ on the diagonal of the attention matrix in a ViT is the *
 
 After that, the resulting matrix $$A$$ can be overlaid on the image. For visualizing an attention map on an image, usually the row from matrix $A$ corresponding to the CLS token is taken (then reshaping and upsampling to the size of the image).
 
-<img src="attention_maps/2.png" alt="diagram" width="400">
+<img src="attention_maps/2.png" alt="diagram" width="400" style="display:block; margin:auto;">
 
 Taken from [here](https://arxiv.org/pdf/2106.01548).
 
