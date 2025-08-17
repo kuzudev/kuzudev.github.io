@@ -106,7 +106,7 @@ _Features in CNNs vs. ViTs:_
 
 But [MaskCLIP](https://arxiv.org/pdf/2112.01071) "approach strictly constrains the receptive field of local tokens, the model may easily over-focus on low-level features and thus produces noisy dense predictions".
 
-### Neaby tokens with same semantic meaning
+### Nearby tokens with same semantic meaning
 
 That is why it is important to use CSA formula instead of identical matrix.
 
