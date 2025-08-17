@@ -93,10 +93,7 @@ A schematic image illustrating approximate changes in attention values.
 
 Actually, even setting attention map to an identical matrix regardless of the input increases segmentation metrics!
 
-"... MaskCLIP uses this attention map in CLIP vision encoder’s last layer and obtains a non-trivial improvement in semantic segmentation..."
-
-
-But "...this approach strictly constrains the receptive field of local tokens, the model may easily over-focus on low-level features and thus produces noisy dense predictions".
+"... [MaskCLIP](https://arxiv.org/pdf/2112.01071) uses this attention map in CLIP vision encoder’s last layer and obtains a non-trivial improvement in semantic segmentation..."
 
 _This restriction of the attention matrix resembles the small receptive field in CNNs._
 _Features in CNNs vs. ViTs:_
@@ -107,6 +104,8 @@ _Features in CNNs vs. ViTs:_
 - ***In ViTs (with full self-attention):***
     - *Already in the **first layer**, each patch (token) can interact with **any other** patch, meaning the model has access to global context from the very beginning.*
 
+But [MaskCLIP](https://arxiv.org/pdf/2112.01071) "approach strictly constrains the receptive field of local tokens, the model may easily over-focus on low-level features and thus produces noisy dense predictions".
+
 ### Neaby tokens with same semantic meaning
 
 That is why it is important to use CSA formula instead of identical matrix.
@@ -115,7 +114,7 @@ That is why it is important to use CSA formula instead of identical matrix.
 
 "...CSA imparts high attention scores not only to $$a_i$$ itself but also to tokens that share similar semantic content"
 
-## Recepie to change ViT
+## Recipe to change ViT
 
 But how can we avoid retraining the vision encoder in CLIP?
 
@@ -149,3 +148,5 @@ logits = image_features @ self.query_features.T
 I built a [Hugging Face Space to test SCLIP interactively](https://huggingface.co/spaces/IgorKuz/SCLIP-Demo).
 
 <img src="sclip/5.png" alt="diagram" width="600">
+
+<img src="sclip/6.png" alt="diagram" width="600">
