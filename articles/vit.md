@@ -143,10 +143,21 @@ $$
 Attention = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right)
 $$
 
+$$
+similarity_score_{ij} = q_i k_j
+$$
+
+$$
+\alpha_{ij} = \frac{exp^{score_{ij}}}{\sum_j exp^{score_{ij}}}
+$$
+
+$$\alpha_{ij}$$ - importance of element $$j$$ for element $$i$$
+
 has shape $$N+1 \; \times \; N+1$$
+
 ### 5. MatMul:
 
-The **MatMul** block, for each query vector in $$Q$$, returns a weighted sum of the value vectors $$V$$, with the weights given by the output of the **Softmax** block for that query.
+The **MatMul** block, for each query vector in $$Q$$, returns a weighted sum of the value vectors $$V$$, with the weights given by the output of the **[Softmax](https://en.wikipedia.org/wiki/Softmax_function)** block for that query. Here it is assumed that softmax is applied to each row of the input matrix.
 
 So, the final formula:
 
@@ -166,10 +177,18 @@ Good interpretantion of attention:
 Indeed,
 
 $$
-\vec a = \alpha_1 \;\vec v_1 \; + \; ... \alpha_{n_V} \; \vec v_{n_V}
+a_{i\;k} = \alpha_{i \; j} \;\; v_{j\;k}
 $$
 
-Where $$\alpha_1, ... , \alpha_{n_V}$$ are weights of closeness between $$Q$$ and $$K$$.
+$$
+\vec a_{i} = \alpha_{i \; 1} \;\; \vec v_1 \; + \;... \; + \; \alpha_{i \; N+1} \;\; \vec v_{N+1}
+$$
+
+$$\vec a_i$$ - column $$i$$ of matrix $$Attention\_res$$
+
+$$\vec v_1, \; ..., \; \vec v_{N+1}$$ - columns of matrix $$V$$
+
+$$\alpha_{i \;\; 1}, \; ..., \; \alpha_{i \;\; N+1}$$ - weights of closeness between $$Q$$ and $$K$$, here index $$i$$ is row $$i$$ of matrix $$softmax \left( \frac{QK^T}{\sqrt{d_K}} \right) V$$
 
 ## Unite Attentions to heads: Multi-Head Self Attention (MHA)
 
