@@ -33,7 +33,7 @@ $$\vec x_p^1, \ldots, \vec x_p^N$$ — flattened patches, each has shape \(1 \ti
 
 $$W_{LP}$$ — linear projection with shape $$P^2 C \times D$$  
 
-$$W_{\text{positional}\; \text{embs}}$$ — learnable positional embeddings for each token, shape $$ (N+1) \times D $$
+$$W_{positional \; embs}$$ — learnable positional embeddings for each token, shape $$ (N+1) \times D $$
 
 ## Attention
 
@@ -65,13 +65,16 @@ This explaination was taken [from this article](https://habr.com/ru/articles/599
 
 
 Let's we have our sequence obtained from the input image:
+
 $$
 X \in \Bbb R^{N+1 \; \times \; D}
 $$
+
 $$N$$ - number of patches
+
 $$D$$ - length of each input embedding (each input token)
 
-<img src="vit/2.png" alt="diagram" width="165">
+<img src="vit/2.png" alt="diagram" width="165" style="display:block; margin:auto;">
 
 ### 0. Linear projection:
 
@@ -106,12 +109,15 @@ $$
 The input consists of the query matrix $$Q$$, the key matrix $$K$$, and the value matrix $$V$$, where each column represents a single query vector, key vector, or value vector, respectively.
 
 Next, the **MatMul** block computes the dot products between each `(query, key)` pair:
+
 $$
 QK^T
 $$
+
 ### 2. Scale:
 
 The **Scale** block normalizes each dot product for numerical stability:
+
 $$
 \frac{QK^T}{\sqrt{d_K}}
 $$
@@ -129,18 +135,22 @@ The **Mask** block is optional. In ViT it is not used, since causality is not im
 ### 4. Softmax:
 
 Here, **Softmax** is applied to each vector of normalized dot products (corresponding to one query and different keys), transforming them into a probability distribution where the elements sum to 1.
+
 $$
 Attention = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right)
 $$
+
 has shape $$N+1 \; \times \; N+1$$
 ### 5. MatMul:
 
 The **MatMul** block, for each query vector in $$Q$$, returns a weighted sum of the value vectors $$V$$, with the weights given by the output of the **Softmax** block for that query.
 
 So, the final formula:
+
 $$
 Attention\_res(Q, K, V) = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right) V
 $$
+
 $$Attention\_res(Q, K, V)$$ has shape $$N+1 \; \times \; D_h$$
 
 <img src="vit/2.png" alt="diagram" width="165">
@@ -184,7 +194,9 @@ Since each head focused on its own subspace of features, they need to be **merge
 $$
 Z_{out \; from \; MSA} = Z \;W_O
 $$
+
 $$W_O$$ has shape $$D \times D$$
+
 $$Z_{out \; from \; MSA}$$ has shape $$N+1 \times D$$
 
 ## Transformer encoder
