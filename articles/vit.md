@@ -209,7 +209,7 @@ Different projection matrices allow each head to “look at” different represe
 
 ### Concat
 
-After heads concatination we again have features $$Z$$ with shape $$N+1 \times D$$ (we have $$h$$ heads and we chose $$D_h = D / 3$$)
+After heads concatination we have features $$Z$$ with shape $$N+1 \times D$$ (we have $$h$$ heads and we chose $$D_h = D / h$$)
 
 ### Linear
 
@@ -252,7 +252,7 @@ $$
 
 As for normalization, in ViT Layer Normalization (LN) is using. 
 
-Layer normalization operates over the features of each individual sample. This distinguishes it from batch normalization, which is widely applied in CNNs.
+Layer normalization operates over the features of each individual sample. This distinguishes it from batch normalization, which is widely applied in CNNs. [Good explanation of layer normalization](https://wandb.ai/wandb_fc/LayerNorm/reports/Layer-Normalization-in-Pytorch-With-Examples---VmlldzoxMjk5MTk1?galleryTag=beginner).
 
 ### MLP
 
