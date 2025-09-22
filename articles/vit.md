@@ -123,14 +123,17 @@ $$
 $$
 
 $$d_K$$ - dimension of matrix $$K$$
+
 Why $$d_K$$ ?
+
+From [Attention Is All You Need](https://arxiv.org/pdf/1706.03762):
 *For large values of $$d_K$$, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients. To counteract this effect, we scale the dot products by $$\sqrt{d_K}$$.*
 
 *In ViT $$d_K = D_h$$*
 
 ### 3. Mask:
 
-The **Mask** block is optional. In ViT it is not used, since causality is not important here - on the contrary, we want the model to see the entire image!
+The **Mask** block is optional. In ViT it is not used, since causality is not important here - on the contrary, we want the model to see the entire image! But causality is important for autoregressive transformers (predicting next token of the sequence) - mask is using in training.
 
 ### 4. Softmax:
 
@@ -156,13 +159,16 @@ $$Attention\_res(Q, K, V)$$ has shape $$N+1 \; \times \; D_h$$
 <img src="vit/2.png" alt="diagram" width="165">
 
 Good interpretantion of attention:
+
 *The vanilla self-attention mechanism generate the target feature by the linear combination of all features which are weighted by the similarity between them*
 (taken from [NAFNet paper](https://arxiv.org/pdf/2204.04676v1)).
 
-Indeed, 
+Indeed,
+
 $$
 \vec a = \alpha_1 \;\vec v_1 \; + \; ... \alpha_{n_V} \; \vec v_{n_V}
 $$
+
 Where $$\alpha_1, ... , \alpha_{n_V}$$ are weights of closeness between $$Q$$ and $$K$$.
 
 ## Unite Attentions to heads: Multi-Head Self Attention (MHA)
