@@ -266,4 +266,4 @@ See more in [ViT paper](https://arxiv.org/pdf/2010.11929).
 
 This model is widely using, for example, for image classification task. By CLS token features (that reflects overall info of image) you can decide (for example, with MLP head 🙂) what class of the input image.
 
-But how is possible to make wider task - open vocabulary classification?
+But how is possible to make wider task - open vocabulary classification? See [here](articles/sclip.md)
