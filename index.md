@@ -16,7 +16,7 @@ layout: default
   <h3>From Vision Transformer to Open Vocabulary Image Segmentation</h3>
 
   <ul>
-    <li><a href="{{ 'articles/vit.md' | relative_url }}">Vision Transformer: Basics</a></li>
+    <li><a href="{{ '/articles/vit.html' | relative_url }}">Vision Transformer: Basics</a></li>
     <li><a href="{{ 'articles/attention_maps.md' | relative_url }}">Vision Transformer: Attention maps</a></li>
     <li><a href="{{ 'articles/clip.md' | relative_url }}">CLIP: Basics</a></li>
     <li><a href="{{ 'articles/sclip.md' | relative_url }}">SCLIP: gracefully upgrade CLIP for segmentation</a></li>
