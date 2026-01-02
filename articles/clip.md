@@ -31,14 +31,14 @@ After training, it is possible to measure how close in meaning a given image is 
 Here special InfoNCE loss is using in training:
 
 $$
--\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}}
+-\frac{1}{N}\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}} - \frac{1}{N}\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(T_i, I_j)}{\tau})}}
 $$
 
 where:
 
 $$f$$ - function that measures similarity (in our case cos sim for embeddings from image and text encoders)
 
-$$\tau$$ -  [tempreture](https://lukesalamone.github.io/posts/what-is-temperature/) parameter
+$$\tau$$ -  [tempreture](https://lukesalamone.github.io/posts/what-is-temperature/) parameter (trainable)
 
 $$I_i$$ - $$i$$th object (for example, image)
 
@@ -46,15 +46,17 @@ $$T_i$$ - $$i$$th object (for example, text description)
 
 $$I_i, T_i$$ - positive pair
 
-$$I_i, T_j$$ $$i \neq j$$ - negative pair
+$$I_i, T_j$$, $$i \neq j$$ - negative pair
+
+
+The first addend is about **Image→Text** (find text description based on the image). The second addend is about **Text→Image** (find image based on text description).
 
 
 <img src="clip/3.png" alt="diagram" width="120" style="display:block; margin:auto;">
 
-Positive and negative pairs
 
 So, actually InfoNCE is Cross Entropy loss with inner $$softmax(similarity)$$.
-[Good explanation about InfoNCE loss](https://ankeshanand.com/blog/2020/01/26/contrative-self-supervised-learning.html).
+[Here is good explanation about InfoNCE loss](https://ankeshanand.com/blog/2020/01/26/contrative-self-supervised-learning.html).
 
 ## Encoders
 
