@@ -13,9 +13,9 @@ This is exactly the idea behind the [SCLIP](https://arxiv.org/pdf/2312.01597) pa
 
 ## Refresh the basics
 
-- [ViT structure](vit.md)
-- [Attention maps of ViT](attention_maps.md)
-- [CLIP structure](clip.md)
+- [ViT structure](/articles/vit.html)
+- [Attention maps of ViT](/articles/attention_maps.html)
+- [CLIP structure](/articles/clip.html)
 
 ## Goal
 

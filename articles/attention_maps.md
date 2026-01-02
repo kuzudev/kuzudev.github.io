@@ -1,7 +1,7 @@
 ---
 title: Vision Transformer - Attention Maps
 ---
-[In the previous note](vit.md), we looked at how the Vision Transformer works. Let's discuss how to see attention maps of ViT.
+[In the previous note](/articles/vit.html), we looked at how the Vision Transformer works. Let's discuss how to see attention maps of ViT.
 
 ## How to get
 

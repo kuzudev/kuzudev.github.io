@@ -1,7 +1,7 @@
 ---
 title: CLIP - Basics
 ---
-[In the previous note](vit.md), we looked at how the Vision Transformer works. With it, classification tasks can be solved quite easily (_as long as labels are available!_ 🙂). However, in this case we are limited to a fixed number of predefined classes.  
+[In the previous note](/articles/vit.html), we looked at how the Vision Transformer works. With it, classification tasks can be solved quite easily (_as long as labels are available!_ 🙂). However, in this case we are limited to a fixed number of predefined classes.  
 But we would really like to build a system capable of working with any text query.
 
 To achieve this, we can turn to **contrastive learning** - an approach borrowed from [**metric learning**](https://habr.com/ru/companies/ods/articles/695380/). Here we learn a representation in which similar objects are close together (small distance), while dissimilar ones are far apart (large distance). The main idea of this approach is the following.

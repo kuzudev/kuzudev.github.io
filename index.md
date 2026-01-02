@@ -17,9 +17,9 @@ layout: default
 
   <ul>
     <li><a href="{{ '/articles/vit.html' | relative_url }}">Vision Transformer: Basics</a></li>
-    <li><a href="{{ 'articles/attention_maps.md' | relative_url }}">Vision Transformer: Attention maps</a></li>
-    <li><a href="{{ 'articles/clip.md' | relative_url }}">CLIP: Basics</a></li>
-    <li><a href="{{ 'articles/sclip.md' | relative_url }}">SCLIP: gracefully upgrade CLIP for segmentation</a></li>
+    <li><a href="{{ '/articles/attention_maps.html' | relative_url }}">Vision Transformer: Attention maps</a></li>
+    <li><a href="{{ '/articles/clip.html' | relative_url }}">CLIP: Basics</a></li>
+    <li><a href="{{ '/articles/sclip.html' | relative_url }}">SCLIP: gracefully upgrade CLIP for segmentation</a></li>
   </ul>
 </div>
 
@@ -27,12 +27,12 @@ layout: default
   <h3>Image embeddings</h3>
 
   <ul>
-    <li><a href="{{ 'articles/siglip.md' | relative_url }}">SigLIP</a></li>
-    <li><a href="{{ 'articles/vit_so400m.md' | relative_url }}">ViT-SO400M</a></li>
-    <li><a href="{{ 'articles/aimv2.md' | relative_url }}">AIMv2</a></li>
-    <li><a href="{{ 'articles/florence2.md' | relative_url }}">Florence-2</a></li>
-    <li><a href="{{ 'articles/dinov2.md' | relative_url }}">DINOv2</a></li>
-    <li><a href="{{ 'articles/dinov3.md' | relative_url }}">DINOv3</a></li>
+    <li><a href="{{ '/articles/siglip.html' | relative_url }}">SigLIP</a></li>
+    <li><a href="{{ '/articles/vit_so400m.html' | relative_url }}">ViT-SO400M</a></li>
+    <li><a href="{{ '/articles/aimv2.html' | relative_url }}">AIMv2</a></li>
+    <li><a href="{{ '/articles/florence2.html' | relative_url }}">Florence-2</a></li>
+    <li><a href="{{ '/articles/dinov2.html' | relative_url }}">DINOv2</a></li>
+    <li><a href="{{ '/articles/dinov3.html' | relative_url }}">DINOv3</a></li>
   </ul>
 </div>
 
