@@ -10,8 +10,6 @@ layout: default
   </p>
 </div>
 
-## Quick index
-
 <div class="two-col">
 
 <div>
@@ -36,8 +34,6 @@ layout: default
     <li><a href="{{ 'articles/dinov2.md' | relative_url }}">DINOv2</a></li>
     <li><a href="{{ 'articles/dinov3.md' | relative_url }}">DINOv3</a></li>
   </ul>
-</div>
-
 </div>
 
 <hr/>
