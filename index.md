@@ -33,6 +33,7 @@ layout: default
     <li><a href="{{ '/articles/florence2.html' | relative_url }}">Florence-2</a></li>
     <li><a href="{{ '/articles/dinov2.html' | relative_url }}">DINOv2</a></li>
     <li><a href="{{ '/articles/dinov3.html' | relative_url }}">DINOv3</a></li>
+    <li><a href="{{ '/articles/embs_choose.html' | relative_url }}">So different image embeddings: what to choose?</a></li>
   </ul>
 </div>
 
