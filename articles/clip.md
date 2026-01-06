@@ -1,7 +1,7 @@
 ---
 title: CLIP - Basics
 ---
-[In the previous note](/articles/vit.html), we looked at how the Vision Transformer works. With it, classification tasks can be solved quite easily (_as long as labels are available!_ 🙂). However, in this case we are limited to a fixed number of predefined classes.  
+[In the note about ViT](/articles/vit.html), we looked at how the Vision Transformer works. With it, classification tasks can be solved quite easily (_as long as labels are available!_ 🙂). However, in this case we are limited to a fixed number of predefined classes.  
 But we would really like to build a system capable of working with any text query.
 
 To achieve this, we can turn to **contrastive learning** - an approach borrowed from [**metric learning**](https://habr.com/ru/companies/ods/articles/695380/). Here we learn a representation in which similar objects are close together (small distance), while dissimilar ones are far apart (large distance). The main idea of this approach is the following.
@@ -31,7 +31,7 @@ After training, it is possible to measure how close in meaning a given image is 
 Here special InfoNCE loss is using in training:
 
 $$
--\frac{1}{N}\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}}
+-\frac{1}{N}\sum_i^N log{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}}
 $$
 
 where:
@@ -52,8 +52,9 @@ $$I_i, T_j$$, $$i \neq j$$ - negative pair
 <img src="clip/3.png" alt="diagram" width="120" style="display:block; margin:auto;">
 
 Loss actually consists of 2 terms:
+
 $$
--\frac{1}{N}\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}} - \frac{1}{N}\sum_ilog{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(T_i, I_j)}{\tau})}}
+-\frac{1}{N}\sum_i^N log{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_i, T_j)}{\tau})}} - \frac{1}{N}\sum_i^N log{\frac{\exp(\frac{f(I_i, T_i)}{\tau})}{\sum_j\exp(\frac{f(I_j, T_i)}{\tau})}}
 $$
 
 
