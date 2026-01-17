@@ -137,7 +137,7 @@ The **Mask** block is optional. In ViT it is not used, since causality is not im
 
 ### 4. Softmax:
 
-Here, **Softmax** is applied to each vector of normalized dot products (corresponding to one query and different keys), transforming them into a probability distribution where the elements sum to 1.
+Here, **[Softmax](https://en.wikipedia.org/wiki/Softmax_function)** is applied to each vector of normalized dot products (corresponding to one query and different keys), transforming them into a probability distribution where the elements sum to 1.
 
 $$
 Attention = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right)
