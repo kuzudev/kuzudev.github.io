@@ -133,7 +133,7 @@ From [Attention Is All You Need](https://arxiv.org/pdf/1706.03762):
 
 ### 3. Mask:
 
-The **Mask** block is optional. In ViT it is not used, since causality is not important here - on the contrary, we want the model to see the entire image! But causality is important for autoregressive transformers (predicting next token of the sequence) - mask is using in training.
+The **Mask** block is optional. In ViT it is not used, since causality is not important here - on the contrary, we want the model to see the entire image! But causality is important for autoregressive transformers (predicting next token of the sequence) - mask is using in training there.
 
 ### 4. Softmax:
 
@@ -144,11 +144,11 @@ Attention = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right)
 $$
 
 $$
-similarity_score_{ij} = q_i k_j
+similarity\_score_{ij} = (\vec q_i, \; \vec k_j)
 $$
 
 $$
-\alpha_{ij} = \frac{exp^{score_{ij}}}{\sum_j exp^{score_{ij}}}
+\alpha_{ij} = \frac{e^{score_{ij}}}{\sum_j e^{score_{ij}}}
 $$
 
 $$\alpha_{ij}$$ - importance of element $$j$$ for element $$i$$
