@@ -23,19 +23,19 @@ layout: default
   </ul>
 </div>
 
-<!-- <div>
+<div>
   <h3>Image embeddings</h3>
 
   <ul>
     <li><a href="{{ '/articles/siglip.html' | relative_url }}">SigLIP</a></li>
-    <li><a href="{{ '/articles/siglipv2.html' | relative_url }}">SigLIP2</a></li>
+    <!-- <li><a href="{{ '/articles/siglipv2.html' | relative_url }}">SigLIP2</a></li>
     <li><a href="{{ '/articles/vit_so400m.html' | relative_url }}">ViT-SO400M</a></li>
     <li><a href="{{ '/articles/aimv2.html' | relative_url }}">AIMv2</a></li>
     <li><a href="{{ '/articles/florence2.html' | relative_url }}">Florence-2</a></li>
     <li><a href="{{ '/articles/dinov2.html' | relative_url }}">DINOv2</a></li>
     <li><a href="{{ '/articles/dinov3.html' | relative_url }}">DINOv3</a></li>
-    <li><a href="{{ '/articles/embs_choose.html' | relative_url }}">So different image embeddings: what to choose?</a></li>
+    <li><a href="{{ '/articles/embs_choose.html' | relative_url }}">So different image embeddings: what to choose?</a></li> -->
   </ul>
-</div> -->
+</div>
 
 <hr/>

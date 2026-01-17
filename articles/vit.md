@@ -26,10 +26,10 @@ $$
 $$\vec w_{CLS}$$ — learnable CLS token with shape $$1 \times D$$  
 $$D$$ — dimension of embedding space  
 
-$$H, W$$ — size of the input image  
-$$P, P$$ — size of each patch  
+$$H \times W$$ — size of the input image  
+$$P \times P$$ — size of each patch  
 $$N=\dfrac{HW}{P^2}$$ — number of patches  
-$$\vec x_p^1, \ldots, \vec x_p^N$$ — flattened patches, each has shape \(1 \times P^2 C\)  
+$$\vec x_p^1, \ldots, \vec x_p^N$$ — flattened patches, each has shape $$\(1 \times P^2 C\)$$  
 
 $$W_{LP}$$ — linear projection with shape $$P^2 C \times D$$  
 
