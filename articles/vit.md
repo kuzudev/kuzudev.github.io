@@ -144,11 +144,11 @@ Attention = softmax \left( \frac{QK^T}{\sqrt{d_K}} \right)
 $$
 
 $$
-similarity\_score_{ij} = (\vec q_i, \; \vec k_j)
+sim\_score_{ij} = (\vec q_i, \; \vec k_j)
 $$
 
 $$
-\alpha_{ij} = \frac{e^{score_{ij}}}{\sum_j e^{score_{ij}}}
+\alpha_{ij} = \frac{e^{sim\_score{ij}}}{\sum_j e^{sim\_score{ij}}}
 $$
 
 $$\alpha_{ij}$$ - importance of element $$j$$ for element $$i$$
